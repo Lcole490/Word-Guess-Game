@@ -1,0 +1,21 @@
+/* Set size of master container */
+.gamecontainer{
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Attributes for arena div where gameplay occurs */
+.arena{
+    width: 100%;
+    max-width: 960px;
+    height: 500px;
+    background-color: rgb(233, 224, 224);
+    border:  dashed rgba(0, 255, 213, 0.459) 10px;
+}
+
+/* Establishing attibutes for row in game */
+.my-row{
+    border: 1px solid red;
+    height: 50px;
+}

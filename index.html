@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Word Guess Game</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/reset.css">
+</head> 
+<body>
+
+    <!-- The gamecontainer div sets dimension for entire site, this is the master container -->
+    <div class="gamecontainer">
+
+<!-- This jumbotron div holds the "jumbotron" Header of the game will be-->
+        <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+                <h1 class="display-4">Welcome To Word-Guess-Game</h1>
+                <p class="lead">The Game Where We Put Your Guess To The Test</p>
+                <h3>OK, Today's Contestant is <span id="player"></span>. Press any Key to start the game</h3>
+            </div>
+        </div>
+    <!--End of Jumbotron div  -->
+
+<!-- The arena div holds the actual game -->
+        <div class="container">
+            <section class="arena">
+                <div class="container">
+                    <div class="row my-row">
+           
+                        <div class="col-2 my-col">Wins:</div>
+                        <div class="col-8 my-col">Guesses Remaining:</div>
+                        <div class="col-2 my-col">Letters Used:</div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </div>
+    <!-- Closing div for master container "last div" -->
+
+
+
+
+    <script type ="text/javascript">
+    
+    // Javascript variables
+        var contestant = prompt("Hello Contestant, what is your name?");
+        var startKey = document.getElementById("startkey");
+
+        // Javascript functions
+        document.getElementById("player").innerHTML= contestant;
+
+
+    
+    </script>
+</body>
+</html>
