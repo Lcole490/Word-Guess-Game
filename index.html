@@ -20,7 +20,7 @@
             <div class="container">
                 <h1 class="display-4">Welcome To Word-Guess-Game</h1>
                 <p class="lead">The Game Where We Put Your Guess To The Test</p>
-                <h3>OK, Today's Contestant is <span id="player"></span>. Press any Key to start the game</h3>
+                <h3>OK, Today's Contestant is <span id="player"></span><span id="startKey" onkeydown="gameStart">. Press any Key to start the game</span></h3>
             </div>
         </div>
     <!--End of Jumbotron div  -->
@@ -31,9 +31,14 @@
                 <div class="container">
                     <div class="row my-row">
            
-                        <div class="col-2 my-col">Wins:</div>
-                        <div class="col-8 my-col">Guesses Remaining:</div>
-                        <div class="col-2 my-col">Letters Used:</div>
+                        <div class="col-2 my-col">Wins: <span id="wins"></span></div>
+                        <div class="col-8 my-col">Guesses Remaining: <span id="guesses"></span></div>
+                        <div class="col-2 my-col">Letters Used: <span id="wrong"></span></div>
+                    </div>
+                    <div class="row my-row2">
+                    <div class="col-12 my-col">What's the Word?</div> 
+                    <p class= "unknownWord"></p>   
+                    <div class="col-12 my-col">Wins:</div>     
                     </div>
                 </div>
 
@@ -49,10 +54,59 @@
     
     // Javascript variables
         var contestant = prompt("Hello Contestant, what is your name?");
-        var startKey = document.getElementById("startkey");
+        var begin = document.getElementById("startKey").innerHTML;
+        var luck = str.replace("Press any Key to start the game", "Good Luck");
+        var wordBank = ["America", "Basketball", "Cartoon", "Dormitory", "Electricity", "Fatigue", "Gratitude", "Hurricane", "Impulse", "Jungle", "Kindergarten","Laughter"];
+        
+        
+        var guesses = mysteryWord.length - 2;
+        var userTry = [];
+        var wordBlanks = [];
+
 
         // Javascript functions
         document.getElementById("player").innerHTML= contestant;
+
+    // Replace initial instruction with good luck message on key event...not working
+        document.onkeyup = function(event){
+
+            document.getElementById("startKey").innerHTML = luck;
+
+        }
+    
+    //loop that gets words from word bank
+
+        for (var i = 0; i < guesses; i++) {
+            var wordChoice = Math.floor(Math.random() * wordBank.length);
+            var mysteryWord = wordBank[wordChoice];
+            //This loop presents the word as blanks to the contestant
+            for (var b=0; b < mysteryWord.length; b++){
+                wordBlanks.push(" _ ");
+                
+            }
+            // The next lines print out to the screen the beginning number of guesses as well as the word to be guessed in the form of blanks i.e.: "_ _ _ _ _ _ _"
+            document.getElementById("guesses").innerHTML = guesses;
+            document.getElementById("unknownWord").innerHTML = wordBlanks;
+
+            //Function checks the letter that contestant guesses
+            function check(){
+                var userTxt= document.getElementById ("userTxt").value;
+                If(mysteryWord.includes(userTxt)){
+                    //this line is for command that finds location of letter in string and replaces the corresponding blank
+                }
+            }
+
+
+            document.onkeyup = function(event) {
+            console.log("event!!!", event);
+            userText.textContent = event.key;
+
+
+        console.log("I love " + vegetables[i]);
+      }
+
+    }
+
 
 
     

@@ -14,8 +14,15 @@
     border:  dashed rgba(0, 255, 213, 0.459) 10px;
 }
 
-/* Establishing attibutes for row in game */
+/* Establishing attibutes for row in game that houses stats*/
 .my-row{
     border: 1px solid red;
     height: 50px;
+}
+
+/* Establishing attributes for row that is the game */
+.my-row2{
+    border: 1px solid red;
+    height: 400px;
+  
 }
