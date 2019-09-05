@@ -20,7 +20,7 @@
             <div class="container">
                 <h1 class="display-4">Welcome To Word-Guess-Game</h1>
                 <p class="lead">The Game Where We Put Your Guess To The Test</p>
-                <h3>OK, Today's Contestant is <span id="player"></span><span id="startKey" onkeydown="gameStart">. Press any Key to start the game</span></h3>
+                <h3>OK, Today's Contestant is <span id="player"></span>. Press any Key to start the game</span></h3>
             </div>
         </div>
     <!--End of Jumbotron div  -->
@@ -31,13 +31,14 @@
                 <div class="container">
                     <div class="row my-row">
            
-                        <div class="col-2 my-col">Wins: <span id="wins"></span></div>
-                        <div class="col-8 my-col">Guesses Remaining: <span id="guesses"></span></div>
-                        <div class="col-2 my-col">Letters Used: <span id="wrong"></span></div>
+                        <div class="col-2 my-col"><h3>Wins: <span id="wins"></span></h3></div>
+                        <div class="col-4 my-col"><h3>Guesses Remaining: <span id="guesses"></span></h3></div>
+                        <div class="col-6 my-col"><h3>Letters Used: <span id="wrong"></span></h3></div>
                     </div>
                     <div class="row my-row2">
-                    <div class="col-12 my-col">What's the Word?</div> 
-                    <p class= "unknownWord"></p>   
+                    <div class="col-12 my-col"><h3>What's the Word?</h3></div> 
+                    <p class= "unknownWord"><h3></h3></p>
+                    <p class= "userTxt"><h3></h3>></p>   
                     <div class="col-12 my-col">Wins:</div>     
                     </div>
                 </div>
@@ -57,7 +58,7 @@
         var begin = document.getElementById("startKey").innerHTML;
         var luck = str.replace("Press any Key to start the game", "Good Luck");
         var wordBank = ["America", "Basketball", "Cartoon", "Dormitory", "Electricity", "Fatigue", "Gratitude", "Hurricane", "Impulse", "Jungle", "Kindergarten","Laughter"];
-        
+        var letterTry =  document.getElementById("userTxt")
         
         var guesses = mysteryWord.length - 2;
         var userTry = [];
@@ -88,18 +89,26 @@
             document.getElementById("guesses").innerHTML = guesses;
             document.getElementById("unknownWord").innerHTML = wordBlanks;
 
+            //prints what the contestant types to the screen
+            document.onkeyup = function(event) {
+            console.log("event!!!", event);
+            userTxt.textContent = event.key;
+            }
+
             //Function checks the letter that contestant guesses
             function check(){
                 var userTxt= document.getElementById ("userTxt").value;
-                If(mysteryWord.includes(userTxt)){
+                If(mysteryWord.includes(userTxt)); {
+                    alert("yes");
                     //this line is for command that finds location of letter in string and replaces the corresponding blank
+                
                 }
             }
 
 
             document.onkeyup = function(event) {
             console.log("event!!!", event);
-            userText.textContent = event.key;
+            userTxt.textContent = event.key;
 
 
         console.log("I love " + vegetables[i]);

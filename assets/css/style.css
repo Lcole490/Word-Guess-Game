@@ -11,18 +11,18 @@
     max-width: 960px;
     height: 500px;
     background-color: rgb(233, 224, 224);
-    border:  dashed rgba(0, 255, 213, 0.459) 10px;
+    border:  dashed rgb(27, 113, 124) 10px;
 }
 
 /* Establishing attibutes for row in game that houses stats*/
 .my-row{
-    border: 1px solid red;
+    border: 1px solid black;
     height: 50px;
 }
 
 /* Establishing attributes for row that is the game */
 .my-row2{
-    border: 1px solid red;
+    border: 1px solid black;
     height: 400px;
   
 }
