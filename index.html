@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Word Guess Game</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="stylesheet" href="./assets/css/reset.css">
-</head> 
-<body>
-
-    <!-- The gamecontainer div sets dimension for entire site, this is the master container -->
+  </head>
+  <body>
+     <!-- The gamecontainer div sets dimension for entire site, this is the master container -->
     <div class="gamecontainer">
 
 <!-- This jumbotron div holds the "jumbotron" Header of the game will be-->
@@ -20,7 +18,7 @@
             <div class="container">
                 <h1 class="display-4">Welcome To Word-Guess-Game</h1>
                 <p class="lead">The Game Where We Put Your Guess To The Test</p>
-                <h3>OK, Today's Contestant is <span id="player"></span>. Press any Key to start the game</h3>
+                <h3>OK, Today's Contestant is <span id="player"></span>.<span id="message"> To Start, Select The First Letter Guess</span></h3>
             </div>
         </div>
     <!--End of Jumbotron div  -->
@@ -32,13 +30,20 @@
                     <div class="row my-row">
            
                         <div class="col-2 my-col"><h4>Wins: <span id="wins"></span></h4></div>
-                        <div class="col-4 my-col"><h4>Guesses Remaining: <span id="guesses"></span></h3></div>
-                        <div class="col-6 my-col"><h4>Letters Used: <span id="wrong"></span></h4></div>
+                        <div class="col-4 my-col"><h4>Losses: <span id="losses"></span></h4></div>
+                        <div class="col-6 my-col"><h4>Guesses Remaining <span id="guesses"></span></h4></div>
                     </div>
+                    <br><br>
                     <div class="row my-row2">
-                    <div class="col-12 my-col"><h4>What's the Word?</h4></div> 
-                    <p class= "unknownWord"><h3></h3></p>
-                    <p class= "userTxt"><h3></h3></p>   
+                    <div class="col-6 my-col"><h4>What's the Word?</h4></div> 
+                    <div class="col-6 my-col"><h4>Wrong Letters Used: <span id="userGuesses"></span></h4></div>
+                    <p><span id= "unknownWord"></span></p>
+                    </div>
+                    <br>
+                    <div class="row my-row">
+                    <div class="col-12 my-col">
+                    <p><h1>Player's Guess:<span id= "userText"></span></h1></p>  
+                   
                     <div class="col-12 my-col"></div>     
                     </div>
                 </div>
@@ -46,84 +51,6 @@
             </section>
         </div>
     </div>
-    <!-- Closing div for master container "last div" -->
-
-
-
-
-    <script type ="text/javascript">
-    
-    // Javascript variables
-        var contestant = prompt("Hello Contestant, what is your name?");
-        var begin = document.getElementById("player").innerHTML;
-        // var luck = luck.replace("Press any Key to start the game", "Good Luck");
-        var wordBank = ["America", "Basketball", "Cartoon", "Dormitory", "Electricity", "Fatigue", "Gratitude", "Hurricane", "Impulse", "Jungle", "Kindergarten","Laughter"];
-        var letterTry =  document.getElementById("userTxt");
-        
-        var guesses = 10;
-        var userTry = [];
-        var wordBlanks = [];
-
-
-        // Javascript functions
-        document.getElementById("player").innerHTML= contestant;
-
-    // Replace initial instruction with good luck message on key event...not working
-        document.onkeyup = function(event){
-
-            document.getElementById("startKey").innerHTML = luck;
-
-        }
-    
-    //loop that gets words from word bank
-
-        for (var i = 0; i < wordBank.length; i++) {
-            console.log(guesses);// How many guesses is the contestant starting with?
-            
-            var wordChoice = Math.floor(Math.random() * wordBank.length);
-            console.log("wordbank length: ", wordBank.length ) //What is the length of the WordBank array?
-            console.log("word choice ", wordChoice); //See which word was chosen for contestant
-            var mysteryWord = wordBank[wordChoice];
-            //This loop presents the word as blanks to the contestant
-            for (var b=0; b < mysteryWord.length; b++){
-                wordBlanks.push(" _ ");
-                
-            }
-            console.log(wordBlanks) //See What is in WordBlanks array
-            // The next lines print out to the screen the beginning number of guesses as well as the word to be guessed in the form of blanks i.e.: "_ _ _ _ _ _ _"
-            document.getElementById("guesses").innerHTML = guesses;
-            document.getElementById("unknownWord").innerHTML = wordBlanks;
-
-            //prints what the contestant types to the screen
-            document.onkeyup = function(event) {
-            console.log("event!!!", event);
-            userTxt.textContent = event.key;
-            }
-
-            //Function checks the letter that contestant guesses
-            function check(){
-                var userTxt= document.getElementById ("userTxt").value;
-                If(mysteryWord.includes(userTxt)); {
-                    alert("yes");
-                    //this line is for command that finds location of letter in string and replaces the corresponding blank
-                
-                }
-            }
-
-
-            document.onkeyup = function(event) {
-            console.log("event!!!", event);
-            userTxt.textContent = event.key;
-
-
-      
-      }
-
-    }
-
-
-
-    
-    </script>
-</body>
+    <script src="./assets/javascript/game.js"></script>
+  </body>
 </html>

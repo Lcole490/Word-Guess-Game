@@ -9,7 +9,7 @@
 .arena{
     width: 100%;
     max-width: 960px;
-    height: 500px;
+    height: 700px;
     background-color: rgb(233, 224, 224);
     border:  dashed rgb(27, 113, 124) 10px;
 }
@@ -17,12 +17,24 @@
 /* Establishing attibutes for row in game that houses stats*/
 .my-row{
     border: 1px solid black;
-    height: 50px;
+    height: 100px;
 }
 
 /* Establishing attributes for row that is the game */
 .my-row2{
     border: 1px solid black;
     height: 400px;
+  
+}
+
+/* Establish size of letters in field of play */
+
+#unknownWord{
+
+  border: 2px solid black;
+  height: 200px;
+  width: 800px;
+  font-size: 50px;
+  text-align: center;
   
 }
