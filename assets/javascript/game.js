@@ -1,7 +1,6 @@
 //Javascript Variables to be used throughout
 
-var contestant = prompt("Hello Contestant, what is your name?");
-var begin = document.getElementById("player").innerHTML;
+
 
 var wordBank = ["america", "basketball", "cartoon", "cormitory", "electricity", "fatigue", "gratitude", "hurricane", "impulse", "jungle", "kindergarten","laughter", "mortgage", "november", "oscilloscope" , "prescription", "quarantine", "residue", "scientific", "technology","underwater", "volume", "wandering", "xylophone", "yesterday", "zephyr"];
 
@@ -13,19 +12,23 @@ var wordBlanks = []; // Array that houses displayed blanks of wordchoice
 var wins = 0;
 var losses = 0;
 var guesses = 10; // The amount of tries the contestant gets
-var userText = document.getElementById("userText");// variable for user input
+var userText = document.getElementById("userText").textContent;// variable for user input
 
 
 
 //******************************Javascript Functions to be called for gameplay ***********************************************************
+window.onload = function (){
 
+var contestant = prompt("Hello Contestant, what is your name?");
+document.getElementById("player").textcontent = contestant;
+}
 
 
 function beginGame() {
 
 
   //Customizes game by inserting contestant's name
-  document.getElementById("player").innerHTML;
+  // document.getElementById("player").innerHTML;
 
   //Refreshes the contestant's amount of guesses each time the game starts
   guesses = 10;
@@ -46,9 +49,7 @@ function beginGame() {
 
   // Refreshes the array that houses the blanks that represent the mystery word
   wordBlanks = [];
-
-  
-
+ 
   // Loop that fills the wordBlanks array with _ _ _ _ _ _ _ _ to represent mystery word chosen
   for (var i = 0; i < wordChoice.length; i++) {
     wordBlanks.push("_");
@@ -58,13 +59,13 @@ function beginGame() {
   console.log(wordBlanks);
 
   // Initializes list of incorrect user guesses
-  document.getElementById("userGuesses").innerHTML =  userGuesses;
+  document.getElementById("userGuesses").textContent =  userGuesses;
 
   // Displays the amount of available guesses to the contestant
-  document.getElementById("guesses").innerHTML = guesses;
+  document.getElementById("guesses").textContent = guesses;
 
   // Displays the mystery word in "_ _ _ _ _ _ _" format to the Contestant
-  document.getElementById("unknownWord").innerHTML = wordBlanks;
+  document.getElementById("unknownWord").textContent = wordBlanks;
 
 
 }
@@ -73,36 +74,42 @@ function beginGame() {
 
 
 // This function compares the contestant's guess to the letters of mystery word
-function verifyGuess(userTry) {
+function verifyGuess(userText) {
 
 
   // Compare the guessed letter to every indexed letter of Word Choice array
   for (var j = 0; j < wordBlanks.length; j++) {
 
-    if (userTry === wordChoice[j] ) {
+    if (event.key === wordChoice[j] ) {
 
       // Set the index of wordBlanks equal to the letter that contestant guessed
 
-      wordBlanks[j] = userText;
-
+     
+        wordBlanks.splice(j, 1, event.key);
+        document.getElementById("unknownWord").innerHTML = wordBlanks;
+      
+      console.log(userText)
+      // wordBlanks[j] = userText.textContent;
+      console.log(wordBlanks[j]=event.key);
       console.log(wordBlanks); // Show in the console the status of wordblanks array
+      console.log(wordBlanks[j]); // Show in the console the status of wordblanks array
 
-      document.getElementById("unknownWord").innerHTML= wordBlanks;
+      // document.getElementById("unknownWord").textContent= wordBlanks;
     }
   }
 
 
   // If the letter guessed is incorrect or does not match, the following will execute
-  if (userTry !== wordChoice[j]) {
+  if (event.key !== wordChoice[j]) {
 
   // The contestant loses an available guess
     guesses--;
 
     // The Contestant's incorrect guess is sent to the user guess array
-    userGuesses.push(userText);
+    userGuesses.push(event.key);
 
     // Display the inccorrect guess to the user
-    document.getElementById("userGuesses").innerHTML= userGuesses.join(" ");
+    document.getElementById("userGuesses").textContent= userGuesses;
 
   
 
@@ -117,24 +124,22 @@ function verifyGuess(userTry) {
 //guesses remaining or was successful in guessing entire word correctly
 function winOrLose() {
 
-    // // First, log an initial status update in the console
-    // // telling us how many wins, losses, and guesses are left.
-    // console.log("WinCount: " + winCounter + " | LossCount: " + lossCounter + " | NumGuesses: " + numGuesses);
+ 
   
-    // HTML UPDATES
-    // ============
+    // Displays update of guesses available
+    document.getElementById("guesses").textContent = guesses;
   
-    // Update the HTML to reflect the new number of guesses.
-    document.getElementById("guesses").innerHTML = guesses;
+    // Displays update of word blanks array
+    document.getElementById("unknownWord").textContent = wordBlanks.join();
   
-    // This will print the array of guesses and blanks onto the page.
-    document.getElementById("unknownWord").innerHTML = wordBlanks;
-  
-    // This will print the wrong guesses onto the page.
-    document.getElementById("userGuesses").innerHTML = userGuesses;
+    // Displays update of wrong letters to game screen
+    document.getElementById("userGuesses").textContent = userGuesses.join();
   
     // Comparing the updated wordblanks array to the wordChoice array
     //If the strings of each array are the same, then the codes below execute
+
+    console.log(wordBlanks.toString());
+    console.log(wordChoice.toString());
     if (wordBlanks.toString() === wordChoice.toString()) {
   
      
@@ -146,27 +151,27 @@ function winOrLose() {
       wins++;
 
       // Display the updated number of wins to contestant
-      document.getElementById("wins").innerHTML = wins;
+      document.getElementById("wins").textContent= wins;
   
       // Start another round of guessing for contestant
       beginGame();
     }
   
     // Condition when Contestant has no available guesses remaining
-    else if (guesses === 0) {
+    else if (guesses === -1) {
 
-
+    // Increase contestant loss column by 1
+      losses++;
+  
       // Give the user an alert
       alert("Sorry, You have used all of your guesses... You Lose!");
 
 
-      // Increase contestant loss column by 1
-      losses++;
-  
+      
       
   
       // Display updated number of losses to contestant
-      document.getElementById("losses").innerHTML = losses;
+      document.getElementById("losses").textContent = losses;
   
       // Starts another round of guessing
       beginGame();
@@ -188,6 +193,8 @@ beginGame();
 document.onkeyup = function(event) {
   
   userText.textContent = event.key;
+  console.log(event.key);
+  // console.log(userText.textContent);
 
   // Runs the code to check for correct guesses.
   verifyGuess(userText);
