@@ -1,8 +1,15 @@
 //Javascript Variables to be used throughout
 
 
+// var buzzerSound;
+// var puzzleSolvedSound;
+// var incorrectSound;
+// var correctSound;
+// var youLoseSound;
 
-var wordBank = ["america", "basketball", "cartoon", "cormitory", "electricity", "fatigue", "gratitude", "hurricane", "impulse", "jungle", "kindergarten","laughter", "mortgage", "november", "oscilloscope" , "prescription", "quarantine", "residue", "scientific", "technology","underwater", "volume", "wandering", "xylophone", "yesterday", "zephyr"];
+
+
+var wordBank = ["america", "basketball", "cartoon", "dormitory", "electricity", "fatigue", "gratitude", "hurricane", "impulse", "jungle", "kindergarten","laughter", "mortgage", "november", "oscilloscope" , "prescription", "quarantine", "residue", "scientific", "technology","underwater", "volume", "wandering", "xylophone", "yesterday", "zephyr"];
 
 var wordChoice= []; // Setup for array that is the word to be guessed
 var mysteryWord = "";
@@ -20,7 +27,7 @@ var userText = document.getElementById("userText").textContent;// variable for u
 window.onload = function (){
 
 var contestant = prompt("Hello Contestant, what is your name?");
-document.getElementById("player").textcontent = contestant;
+document.getElementById("player").textContent;
 }
 
 
@@ -86,9 +93,10 @@ function verifyGuess(userText) {
 
      
         wordBlanks.splice(j, 1, event.key);
-        document.getElementById("unknownWord").innerHTML = wordBlanks;
+        document.getElementById("unknownWord").innerHTML = wordBlanks.join(" ");
+        
       
-      console.log(userText)
+      console.log(event.key)
       // wordBlanks[j] = userText.textContent;
       console.log(wordBlanks[j]=event.key);
       console.log(wordBlanks); // Show in the console the status of wordblanks array
@@ -96,12 +104,13 @@ function verifyGuess(userText) {
 
       // document.getElementById("unknownWord").textContent= wordBlanks;
     }
+
   }
 
 
   // If the letter guessed is incorrect or does not match, the following will execute
   if (event.key !== wordChoice[j]) {
-
+    console.log(j);
   // The contestant loses an available guess
     guesses--;
 
@@ -162,11 +171,17 @@ function winOrLose() {
 
     // Increase contestant loss column by 1
       losses++;
+
+     
   
       // Give the user an alert
       alert("Sorry, You have used all of your guesses... You Lose!");
 
+      //Give user the correct answer
+      
+      alert("The Word We Were Looking For Was " + wordChoice);
 
+      
       
       
   

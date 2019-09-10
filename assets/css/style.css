@@ -5,25 +5,40 @@
     margin-right: auto;
 }
 
+.wheel{
+    background-image: url("../images/wheelbackdrop.png");
+    background-repeat: no-repeat;
+    background-size: 940px 700px;
+    opacity: .7;
+    color: white;
+    
+}
+
 /* Attributes for arena div where gameplay occurs */
 .arena{
     width: 100%;
     max-width: 960px;
     height: 700px;
-    background-color: rgb(233, 224, 224);
+    background-image: url("../images/jeopardybackdrop2.jpg");
+    background-repeat: no-repeat;
+    background-size: 920px 700px;
+    /* background-color: rgb(233, 224, 224); */
     border:  dashed rgb(27, 113, 124) 10px;
 }
 
 /* Establishing attibutes for row in game that houses stats*/
 .my-row{
-    border: 1px solid black;
+    border: 1px solid white;
     height: 100px;
+    color: white;
 }
 
 /* Establishing attributes for row that is the game */
 .my-row2{
-    border: 1px solid black;
+    border: 1px solid white;
     height: 400px;
+    color: white;
+    
   
 }
 
@@ -36,5 +51,6 @@
   width: 800px;
   font-size: 50px;
   text-align: center;
+  color: white;
   
 }
