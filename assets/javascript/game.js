@@ -9,7 +9,7 @@
 
 
 
-var wordBank = ["america", "basketball", "cartoon", "dormitory", "electricity", "fatigue", "gratitude", "hurricane", "impulse", "jungle", "kindergarten","laughter", "mortgage", "november", "oscilloscope" , "prescription", "quarantine", "residue", "scientific", "technology","underwater", "volume", "wandering", "xylophone", "yesterday", "zephyr"];
+var wordBank = ["america", "basketball", "cartoon", "dormitory", "electricity", "fatigue", "gratitude", "hurricane", "impulse", "jungle", "kindergarten","laughter", "mortgage", "november", "oscilloscope" , "prescription", "quarantine", "residue", "scientific", "technology","underwater", "volume", "wandering", "xylophone", "yesterday", "zephyr", "revolutionary", "ostentatious", "preliminary", "unconstitutional", "complimentary", "patriarchal", "allegory", "belligerent", "antebellum", "hierarchical", "monopolize", "obligatory", "chandelier", "bittersweet", "environmentalist" , "transcontinental", "gastronomy", "pediatrician"];
 
 var wordChoice= []; // Setup for array that is the word to be guessed
 var mysteryWord = "";

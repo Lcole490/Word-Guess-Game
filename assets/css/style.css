@@ -6,7 +6,7 @@
 }
 
 .wheel{
-    background-image: url("../images/wheelbackdrop.png");
+    background-image: url("../images/wheelbanner.jpg");
     background-repeat: no-repeat;
     background-size: 940px 700px;
     opacity: .7;
@@ -19,7 +19,7 @@
     width: 100%;
     max-width: 960px;
     height: 700px;
-    background-image: url("../images/jeopardybackdrop2.jpg");
+    background-image: url("../images/wheelbanner.jpg");
     background-repeat: no-repeat;
     background-size: 920px 700px;
     /* background-color: rgb(233, 224, 224); */
@@ -38,6 +38,7 @@
     border: 1px solid white;
     height: 400px;
     color: white;
+    font-weight: bolder
     
   
 }
@@ -46,7 +47,7 @@
 
 #unknownWord{
 
-  border: 2px solid black;
+  border: 2px solid white;
   height: 200px;
   width: 800px;
   font-size: 50px;
