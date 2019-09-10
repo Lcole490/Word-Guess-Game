@@ -83,6 +83,23 @@ function beginGame() {
 // This function compares the contestant's guess to the letters of mystery word
 function verifyGuess(userText) {
 
+  var wordCheck = false;// set wordCheck variable to false by default
+
+  // loop checks to see if letter exists in array. Just true and false, otherwise program will take available guesses for every letter.
+  for (var i = 0; i < wordBlanks.length; i++) {
+
+    if (wordChoice[i] === event.key) {
+
+      
+      wordCheck= true; // True means the letter is somewhere in the array
+    }
+  }
+
+
+  // New if based on true condition, 
+      if(wordCheck){
+
+      
 
   // Compare the guessed letter to every indexed letter of Word Choice array
   for (var j = 0; j < wordBlanks.length; j++) {
@@ -107,9 +124,9 @@ function verifyGuess(userText) {
 
   }
 
-
+}
   // If the letter guessed is incorrect or does not match, the following will execute
-  if (event.key !== wordChoice[j]) {
+  else {
     console.log(j);
   // The contestant loses an available guess
     guesses--;
